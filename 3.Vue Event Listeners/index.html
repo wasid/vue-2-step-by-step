@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue 2 Step by Step</title>
+    </head>
+    <body>
+        <div id="vueApp3">
+            
+            <ul>
+                <li v-for="name in names">{{name}}</li>
+            </ul>
+            <input type="text" v-model="newName"/>
+            <button @click = "addName" >Add New</button>
+        </div>
+        <script type="text/javascript" src="https://unpkg.com/vue@2.3.3"></script>
+        <script>
+            let app = new Vue({
+               el: '#vueApp3',
+               data: {
+                   newName: '',
+                   names: ['name1', 'name2', 'name3', 'name4']
+               },
+               
+               methods: {
+                   addName(){
+                       
+                       this.names.push(this.newName);
+                       
+                       this.newName = '';
+                   }
+               }
+               
+            });
+        </script>
+    </body>
+</html>
