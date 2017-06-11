@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue 2 Step by Step</title>
+        <style type="text/css">
+            .is-loading{
+                background: steelblue;
+                color: white;
+                transition: all 0.5s;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="vueApp4">
+            <button :class="{'is-loading':loading}" @click = "toggleMe" >Toggle Me</button>
+        </div>
+        <script type="text/javascript" src="https://unpkg.com/vue@2.3.3"></script>
+        <script>
+            let app = new Vue({
+               el: '#vueApp4',
+               data: {
+                   loading: false,
+               },
+               
+               methods: {
+                   toggleMe(){
+                       
+                       if(this.loading == false){
+                           this.loading = true;
+                       }
+                       else{
+                           this.loading = false;
+                       }
+                       
+                   }
+               }
+               
+            });
+        </script>
+    </body>
+</html>
