@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue 2 Step by Step</title>
+    </head>
+    <body>
+        <div id="vueApp5">
+            <h1>All Tasks</h1>
+            <ul>
+                <li v-for="task in tasks" v-text="task.info"></li>
+            </ul>
+            <h2>left Tasks</h2>
+            <ul>
+                <li v-for="task in leftTask" v-text="task.info"></li>
+            </ul>
+            <h2>Done Tasks</h2>
+            <ul>
+                <li v-for="task in doneTask" v-text="task.info"></li>
+            </ul>
+        </div>
+        <script type="text/javascript" src="https://unpkg.com/vue@2.3.3"></script>
+        <script>
+            let app = new Vue({
+               el: '#vueApp5',
+               data: {
+                   tasks: [
+                       {info: "task 1", done: false},
+                       {info: "task 2", done: true},
+                       {info: "task 3", done: false},
+                       {info: "task 4", done: true},
+                       {info: "task 5", done: true},
+                       {info: "task 6", done: true}
+                       
+                       ]
+               },
+               
+               computed: {
+                   
+                   doneTask(){
+                       
+                       return this.tasks.filter(task => task.done);
+                   },
+                   
+                   leftTask(){
+                       
+                       return this.tasks.filter(task => !task.done);
+                   },
+                   
+
+               }
+               
+            });
+        </script>
+    </body>
+</html>
