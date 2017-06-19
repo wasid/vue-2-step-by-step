@@ -1,23 +1,45 @@
-Vue.component('modal', {
+Vue.component('coupon', {
 
     template: `
-            <div class="modal is-active">
-              <div class="modal-background"></div>
-              <div class="modal-content">
-                  <div class="box">
-                    <slot></slot>
-                  </div>
-              </div>
-              <button class="modal-close" @click="$emit('close')"></button>
-            </div>
     
-    `
+        <div>
+            <input placeholder="enter coupon" @blur="testCoupon" @focus="removeMsg">
+        </div>
+    `,
+    
+    
+    methods: {
+        testCoupon(){
+           this.$emit('applied');
+       },
+       
+       removeMsg(){
+           this.$emit('removed');
+       },
+    }
 });
 
+
+
 let app = new Vue({
-   el: '#vueApp9',
+   
+   el: '#vueApp11',
+   
+   data: {
        
-    data: { 
-            isActive: false
-    }
+       validCouponApplied: false
+        
+    },
+   
+   methods: {
+       couponApplied(){
+           this.validCouponApplied = true
+       },
+       
+       couponRemoved(){
+           this.validCouponApplied = false
+       },
+       
+   }
+       
 });
