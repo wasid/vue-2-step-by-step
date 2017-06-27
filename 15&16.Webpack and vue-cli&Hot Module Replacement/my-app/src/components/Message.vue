@@ -17,7 +17,6 @@
         background:steelblue;
         padding:10px;
         border:1px solid #c5c5c5;
-        width: 50%;
         color: white;
         margin-bottom:10px;
     }
